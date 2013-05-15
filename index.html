@@ -2,17 +2,47 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Stories</title>
+    <title>Story.js</title>
 </head>
 
 <body>
 
 <form>
+<h1>A simple form</h1>
+<div>
 <input type="checkbox" id="my-checkbox" data-story="rapunzel" />
-<label for="my-checkbox">Rapunzel</label>
+<label>Rapunzel</label>
+</div>
+<p>
 <button>Submit</button>
+</p>
+<p>
+If you click the checkbox, then the submit button, an alert will appear.
+</p>
 </form>
 
-<script src="story.js"></script>
+<script src="js/story.js"></script>
+<script>
+
+// Create a new story.
+var story = new Story();
+
+// Define the sequence of events.
+story.event({
+         'watch_for': 'click',
+         'on': '#my-checkbox',
+         'response': function() {
+             this.continue();
+         }
+     })
+     .event({
+         'watch_for': 'click',
+         'on': 'button',
+         'response': function() {
+             window.alert('You clicked the checkbox and submit button!');
+         }
+     });
+
+</script>
 </body>
 </html>

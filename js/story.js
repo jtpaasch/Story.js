@@ -2,9 +2,10 @@
  *  The `Story` module lets you specify a sequence
  *  of events, and how to respond to each of them. 
  *
- *  @author JT Paasch
- *  @copyright May 2013
- *  @license GPL license: http://<gpl-url>
+ *  @author JT Paasch jt dot paasch at gmail
+ *  @copyright Copyright 2013 JT Paasch
+ *  @license Distruted under the LGPL license: 
+ *           http://www.gnu.org/licenses/lgpl.txt
  */
 var Story = Story || (function() {
 
@@ -229,7 +230,7 @@ var Story = Story || (function() {
      *  @return Object
      */
     return {
-        events: events, // Uncomment for debugging
+        // events: events, // Uncomment for debugging
         event: event,
         stop: stop,
         'continue': next,
