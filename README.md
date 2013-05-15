@@ -26,12 +26,9 @@ Inside each event() method, include an object that identifies three things:
 * **on : selector** -- a valid CSS selector that identifies the item(s) you want to watch, e.g., `#myelement`, `.my-class`, or even `button`. 
 * **response : function** -- The function to execute when the event occurs. 
 
-Inside each response function, you can perform whatever logic you like, but you need to tell it whether it can start listening for the next event in the sequence, whether it should listen again for a repeat event, or whether it should stop listening altogether. You can do that with `this.continue()`, `this.repeat()`, and `this.stop()`, respectively.
+Inside each response function, you can perform whatever logic you like, but when you're ready, you need to tell the story module whether it should start listening for the next event in the sequence, whether it should listen again for a repeat event, or whether it should stop listening altogether. You can do that with `this.continue()`, `this.repeat()`, and `this.stop()`, respectively.
 
-Example
--------
-
-This opens an alert when the user first clicks an element with an id of `my-element`, then clicks any element with a class of `.my-class`:
+Here is an example: it opens an alert when the user first clicks an element with an id of `my-element`, then clicks any element with a class of `.my-class`:
 
     story.event({
              'watch_for': 'click',
@@ -46,6 +43,8 @@ This opens an alert when the user first clicks an element with an id of `my-elem
                  window.alert('Hello world!')
              }
          });
+
+Notice that the first event uses `this.continue()`: this stipulates that the story module can start listening for the next event. The next event could stipulate that the sequence is done with `this.stop()`, but since it's the last event in the sequence, that would be redundant. 
 
 
 Multi-page stories
