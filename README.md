@@ -22,9 +22,9 @@ Then chain events together. The basic syntax is this:
 
 Inside each event() method, include an object that identifies three things:
 
-* *watch_for* : event - what to watch for, e.g., a click.
-* *on* : selector - a valid CSS selector that identifies the item(s) you want to watch, e.g., `#myelement`, `.my-class`, or even `button`. 
-* *response* : function - The function to execute when the event occurs. 
+* _watch_for : eventType_ --- what type of event to watch for, e.g., `click`.
+* _on : selector_ --- a valid CSS selector that identifies the item(s) you want to watch, e.g., `#myelement`, `.my-class`, or even `button`. 
+* _response : function_ --- The function to execute when the event occurs. 
 
 Inside each response function, you can perform whatever logic you like, but you need to tell it whether it can start listening for the next event in the sequence, whether it should listen again for a repeat event, or whether it should stop listening altogether. You can do that with `this.continue()`, `this.repeat()`, and `this.stop()`, respectively.
 
